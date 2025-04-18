@@ -1,6 +1,28 @@
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+---
+const pageTitle = "Our Astro Blog";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/blog">Blog</a>
+    </nav>
 
-<h1>Pouncy Learning Blog</h1>
-<p>This is where I’ll post updates on my Astro journey.</p>
+    <h1>{pageTitle}</h1>
+    <p>This is where we will share what we learn about Astro.</p>
+
+    <ul>
+      <li><a href="/posts/post-1">Post 1</a></li>
+      <li><a href="/posts/post-2">Post 2</a></li>
+      <li><a href="/posts/post-3">Post 3</a></li>
+    </ul>
+  </body>
+</html>

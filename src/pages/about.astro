@@ -1,24 +1,91 @@
 ---
+import '../styles/global.css';
+const pageTitle = "About Us";
 
+// Personal details
+const identity = {
+  firstName: "Ashriel",
+  secondName: "Aslan",
+  country:   "USA",
+  occupation:"Students",
+  hobbies:   ["photography", "Bible", "WWE"],
+};
+
+// Skills list
+const skills = ["HTML", "CSS", "JavaScript", "Astro"];
+
+// Conditional flags
+const happy    = true;
+const finished = false;
+const goal     = 3;
+
+// CSS‑variable values
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase   = "uppercase";
 ---
-
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Pouncy</title>
-	</head>
-	<body>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about/">About</a>
-            <a href="/blog/">Blog</a>
-        </nav>
-		<h1>About Pouncy</h1>
-        <h2>Hello, the people who build this page are Ashriel & Aslan.</h2>
-        <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-        <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+
+    <!-- Page‑specific styles -->
+    <style>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+
+    <!-- Styles that use CSS variables -->
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/blog">Blog</a>
+    </nav>
+
+    <h1>{pageTitle}</h1>
+    <p>
+      We're building this site as we learn Astro—together with our partner in crime, our twin brother.
+    </p>
+
+    <p>Here are a few facts about us:</p>
+    <ul>
+      <li>Our name are {identity.firstName} and {identity.secondName}.</li>
+      <li>We live in {identity.country} and we work as {identity.occupation}.</li>
+      {identity.hobbies.length >= 2 && (
+        <li>
+          Two of our hobbies are {identity.hobbies[0]} and reading the {identity.hobbies[1]}.
+        </li>
+      )}
+    </ul>
+
+    <p>Our skills are:</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+
+    {happy    && <p>We are happy to be learning Astro!</p>}
+    {finished && <p>We finished this tutorial!</p>}
+    {goal === 3
+      ? <p>Our goal is to finish in 3 days.</p>
+      : <p>Our goal is not 3 days.</p>
+    }
+  </body>
 </html>
