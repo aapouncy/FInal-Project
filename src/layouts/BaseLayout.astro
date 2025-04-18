@@ -1,0 +1,27 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+const { pageTitle, children } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+
+    <main>
+      <h1>{pageTitle}</h1>
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- This is the correct way to include your menu script -->
+    <script type="module" src="/scripts/menu.js"></script>
+  </body>
+</html>

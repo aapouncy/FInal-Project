@@ -1,3 +1,4 @@
+/* Base/global styles */
 html {
     background-color: #f1f5f9;
     font-family: sans-serif;
@@ -19,16 +20,32 @@ html {
     margin: 1rem 0;
     font-size: 2.5rem;
   }
-
-  /* nav styles */
-
-.nav-links {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
+  
+  /* Hamburger button */
+  .hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
     background-color: #ff9776;
+  }
+  
+  /* Hide links by default (mobile) */
+  .nav-links {
     display: none;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    background-color: #ff9776;
     margin: 0;
+    padding: 0;
+    list-style: none;
   }
   
   .nav-links a {
@@ -43,25 +60,32 @@ html {
   
   .nav-links a:hover,
   .nav-links a:focus {
-    background-color: #ff9776;
+    background-color: #e86c50;
   }
   
-  .expanded {
-    display: unset;
+  /* Show links when toggled */
+  .nav-links.expanded {
+    display: block;  /* or flex, whichever layout you prefer */
   }
   
+  /* On larger screens, always show links & hide hamburger */
   @media screen and (min-width: 636px) {
+    .hamburger {
+      display: none;
+    }
+  
     .nav-links {
-      margin-left: 5em;
-      display: block;
+      display: flex;
       position: static;
       width: auto;
       background: none;
+      margin: 0;
+      padding: 0;
     }
   
     .nav-links a {
       display: inline-block;
-      padding: 15px 20px;
+      padding: 0 1rem;
     }
-  
   }
+  

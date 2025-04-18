@@ -1,5 +1,6 @@
 ---
-title: Our Third Blog Post
+layout: ../../layouts/MarkdownPostLayout.astro
+title: Third Blog Post
 author: Astro Learner
 description: "We had some challenges, but asking in the community really helped!"
 image:

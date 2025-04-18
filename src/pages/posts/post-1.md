@@ -1,5 +1,6 @@
 ---
-title: "Our First Blog Post"
+layout: ../../layouts/MarkdownPostLayout.astro
+title: "First Blog Post"
 pubDate: 2025-04-17
 description: "Learning Astro together is fun!"
 author: "Ashriel & Aslan"
