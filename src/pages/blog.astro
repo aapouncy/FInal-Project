@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
 const pageTitle = "Our Astro Blog";
 const allPosts = await Astro.glob('./posts/*.md');
 allPosts.sort((a, b) =>
@@ -12,11 +13,6 @@ allPosts.sort((a, b) =>
   <p>This is where we will share what we learn about Astro.</p>
 
   <ul>
-    {allPosts.map(post => (
-      <li>
-        <a href={post.url}>{post.frontmatter.title}</a>
-        — {new Date(post.frontmatter.pubDate).toLocaleDateString()}
-      </li>
-    ))}
+    {allPosts.map((post: any) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
   </ul>
 </BaseLayout>
