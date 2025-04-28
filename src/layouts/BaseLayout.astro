@@ -10,6 +10,13 @@ const { pageTitle, children } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+
+    <link
+  rel="alternate"
+  type="application/rss+xml"
+  href="/rss.xml"
+  title="Pouncy Blog Feed"
+/>
   </head>
   <body>
     <Header />
